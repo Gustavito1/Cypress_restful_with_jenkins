@@ -19,7 +19,7 @@ pipeline{
         }
         stage('e2e Test'){
             steps{
-                bat "npm run test"
+                bat "npx cypress run"
             }
         }
         stage('Deploy'){
