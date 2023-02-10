@@ -6,7 +6,7 @@ pipeline{
     }
 
     parameters{
-        choice(name: "BROWSER", choices: ['chorme','edge'], description: "Ejecucion en varios navegadores")
+        choice(name: "BROWSER", choices: ['chrome','edge'], description: "Ejecucion en varios navegadores")
     }
 
     tools {nodejs "Node18"}
@@ -23,7 +23,7 @@ pipeline{
         }
         stage('e2e Test'){
             steps{
-                bat "npx cypress run --browser ${BROWSER}"
+                bat "npx cypress run --browser ${params.BROWSER}"
             }
         }
         stage('Deploy'){
